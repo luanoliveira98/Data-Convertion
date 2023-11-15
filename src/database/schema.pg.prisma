@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("PGDB_URL")
+}
+
+model Realty {
+  id   Int    @id @default(autoincrement()) @db.SmallInt
+  name String @map("nome")
+
+  buildings Building[]
+
+  @@map("empreendimentos")
+}
+
+model Building {
+  id       Int    @id @default(autoincrement()) @db.SmallInt
+  realtyId Int    @map("empreendimento_id") @db.SmallInt
+  name     String @map("nome")
+
+  realty Realty @relation(fields: [realtyId], references: [id])
+  units  Unit[]
+
+  @@map("torres")
+}
+
+model Unit {
+  id         Int      @id @default(autoincrement()) @db.SmallInt
+  buildingId Int      @map("torre_id") @db.SmallInt
+  floor      Int      @map("andar")
+  number     String   @map("numero")
+  type       UnitType @map("tipo")
+
+  building          Building           @relation(fields: [buildingId], references: [id])
+  unitParkingSpaces UnitParkingSpace[] @relation("unitParkingSpace")
+  parkingSpaceUnits UnitParkingSpace[] @relation("parkingSpaceUnit")
+
+  @@map("unidades")
+}
+
+enum UnitType {
+  apartamento
+  vaga
+
+  @@map("tipo_unidade")
+}
+
+model UnitParkingSpace {
+  unitId         Int @map("unidade_id") @db.SmallInt
+  parkingSpaceId Int @map("vaga_de_garagem_id") @db.SmallInt
+
+  unit         Unit @relation("unitParkingSpace", fields: [unitId], references: [id])
+  parkingSpace Unit @relation("parkingSpaceUnit", fields: [parkingSpaceId], references: [id])
+
+  @@id([unitId, parkingSpaceId])
+  @@map("unidades_vagas_garagem")
+}
