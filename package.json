@@ -87,9 +87,9 @@
     "moduleNameMapper": {
       "^@src(.*)$": "<rootDir>/$1",
       "^@test(.*)$": "<rootDir>/../test/$1"
-    },
-    "prisma": {
-      "schema": "src/database/prisma/schema.pg.prisma"
     }
+  },
+  "prisma": {
+    "schema": "src/database/schema.pg.prisma"
   }
 }

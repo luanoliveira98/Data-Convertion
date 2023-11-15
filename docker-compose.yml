@@ -10,16 +10,3 @@ services:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "5432:5432"
-
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: base
-    volumes:
-      - ./src:/app/src
-      - ./nodemon.json:/nodemon.json
-    container_name: app
-    command: npm run dev
-    depends_on:
-      - postgres

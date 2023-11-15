@@ -8,8 +8,8 @@ datasource db {
 }
 
 model Realty {
-  id   Int    @id @default(autoincrement()) @db.SmallInt
-  name String @map("nome")
+  id    Int    @id @default(autoincrement()) @db.SmallInt
+  title String @map("nome")
 
   buildings Building[]
 
@@ -19,7 +19,7 @@ model Realty {
 model Building {
   id       Int    @id @default(autoincrement()) @db.SmallInt
   realtyId Int    @map("empreendimento_id") @db.SmallInt
-  name     String @map("nome")
+  title    String @map("nome")
 
   realty Realty @relation(fields: [realtyId], references: [id])
   units  Unit[]
