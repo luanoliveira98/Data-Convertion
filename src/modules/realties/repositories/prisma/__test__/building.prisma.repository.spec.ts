@@ -5,11 +5,11 @@ import { BuildingPrismaRepository } from "../building.prisma.repository";
 
 describe("BuildingPrismaRepository", () => {
   let prismaService: PrismaService;
-  let bildingPrismaRepository: BuildingPrismaRepository;
+  let buildingPrismaRepository: BuildingPrismaRepository;
 
   beforeEach(() => {
     prismaService = new PrismaService();
-    bildingPrismaRepository = new BuildingPrismaRepository(prismaService);
+    buildingPrismaRepository = new BuildingPrismaRepository(prismaService);
   });
 
   afterEach(async () => {
@@ -37,7 +37,7 @@ describe("BuildingPrismaRepository", () => {
     it("should not be able to create when id already exists", async () => {
       const [building] = realty.buildings;
 
-      await expect(bildingPrismaRepository.create(building)).rejects.toThrow(
+      await expect(buildingPrismaRepository.create(building)).rejects.toThrow(
         PrismaClientKnownRequestError
       );
 
@@ -49,7 +49,7 @@ describe("BuildingPrismaRepository", () => {
       const [building] = realty.buildings;
       building.realtyId = realty.id + 1;
 
-      await expect(bildingPrismaRepository.create(building)).rejects.toThrow(
+      await expect(buildingPrismaRepository.create(building)).rejects.toThrow(
         PrismaClientKnownRequestError
       );
 
@@ -61,7 +61,7 @@ describe("BuildingPrismaRepository", () => {
       const [building] = realty.buildings;
       building.id++;
 
-      const createdBuilding = await bildingPrismaRepository.create(building);
+      const createdBuilding = await buildingPrismaRepository.create(building);
 
       await expect(createdBuilding).toEqual(building);
 

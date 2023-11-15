@@ -1,7 +1,7 @@
 import { BuildingEntity } from "../entities/building.entity";
 
 export interface BuildingRepository {
-  create(realties: BuildingEntity): Promise<BuildingEntity>;
+  create(building: BuildingEntity): Promise<BuildingEntity>;
 }
 
 export const BuildingRepository = Symbol("BuildingRepository");

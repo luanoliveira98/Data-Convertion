@@ -1,4 +1,7 @@
-export const UnitType = {
+export const UnitType: {
+  APARTMENT: "apartamento";
+  PARKINGSPACE: "vaga";
+} = {
   APARTMENT: "apartamento",
   PARKINGSPACE: "vaga",
 };

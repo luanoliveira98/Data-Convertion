@@ -7,5 +7,5 @@ export interface BuildingEntity {
   title: string;
 
   realty?: RealtyEntity;
-  units?: UnitEntity;
+  units?: UnitEntity[];
 }
