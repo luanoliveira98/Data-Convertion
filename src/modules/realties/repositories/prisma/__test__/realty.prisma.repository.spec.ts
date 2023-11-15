@@ -20,16 +20,9 @@ describe("RealtyPrismaRepository", () => {
     let realty: RealtyEntity;
 
     beforeEach(async () => {
-      realty = {
-        id: 7,
-        title: "Test Realty",
-      };
-
-      const { id, title } = realty;
-      await prismaService.realty.create({
+      realty = await prismaService.realty.create({
         data: {
-          id,
-          title,
+          title: "Test Realty",
         },
       });
     });
@@ -46,7 +39,7 @@ describe("RealtyPrismaRepository", () => {
     it("should be able to create when id not exists", async () => {
       realty = {
         ...realty,
-        id: 8,
+        id: realty.id + 1,
       };
       const createdRealty = await realtyPrismaRepository.create(realty);
 
