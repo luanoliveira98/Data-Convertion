@@ -1,73 +1,89 @@
+<h1 align="center"> Data Convertion </h1>
+
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/luanoliveira98/Data-Convertion?color=%2304D361"/>
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/luanoliveira98/Data-Convertion">
+  <a href="https://github.com/luanoliveira98/Data-Convertion/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/luanoliveira98/Data-Convertion">
+  </a>
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+  <img src="https://img.shields.io/static/v1?label=Made%20with&message=Typescript&color=007acc"/>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
+<p align="center">
+ <a href="#⚓-pre-requisites">Pre-requisites</a> •
+ <a href="#💾-running-the-code">Running the code</a> •
+ <a href="#🛠️-tech-stack">Tech Stack</a> • 
+ <a href="#author">Author</a> • 
+ <a href="#license">License</a>
 </p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+### ⚓ Pre-requisites
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Before you begin, you will need to have the following tools installed on your machine:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/), [yarn](https://yarnpkg.com/), [Docker](https://www.docker.com/).
+In addition, it is good to have an editor to work with the code like [VSCode](https://code.visualstudio.com/)
 
-## Installation
-
-```bash
-$ yarn install
-```
-
-## Running the app
+### 💾 Running the code
 
 ```bash
-# development
-$ yarn run start
 
-# watch mode
-$ yarn run start:dev
+#clone this repository
+$ git clone git@github.com:luanoliveira98/Data-Convertion.git
 
-# production mode
-$ yarn run start:prod
+# Acess the project folder cmd/terminal
+$ cd Data-Convertion
+
+# Install the dependencies
+$ yarn
+
+# Duplicate .env.example with name .env and fill the necessary variables
+
+# Run the database
+$ docker-compose up -d
+
+# Generate schema types
+$ yarn db:prisma:generate
+
+# Run the application
+$ yarn start:dev
+
+# Run all tests
+$ yarn test
+
+# Run e2e tests
+$ yarn test:e2e
+
+# Run unit tests
+$ yarn test:unit
+
+# The server will start at port: 3333 - go to http://localhost:3000
+
 ```
 
-## Test
+## 🛠️ Tech Stack
 
-```bash
-# unit tests
-$ yarn run test
+- **[Node](https://nodejs.org/en/)**
+- **[Typescript](https://www.typescriptlang.org/)**
+- **[NestJs](https://nestjs.com/)**
 
-# e2e tests
-$ yarn run test:e2e
+## Author
 
-# test coverage
-$ yarn run test:cov
-```
+---
 
-## Support
+<a href="https://github.com/luanoliveira">
+ <img style="border-radius: 50%;" src="https://github.com/luanoliveira98.png" width="100px;" alt=""/>
+ <br />
+ <sub><b>Luan Oliveira</b></sub>
+</a>
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/luan-oliveira-saldanha/)](https://www.linkedin.com/in/luan-oliveira-saldanha/)
+[![Gmail Badge](https://img.shields.io/badge/-Gmail-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:luanoliveiraltda@gmail.com)](mailto:luanoliveiraltda@gmail.com)
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+---
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+This project is under the license [MIT](./LICENSE).
+
+Made with ❤️ by Luan Oliveira 👋🏽 [Get in Touch!](Https://www.linkedin.com/in/luan-oliveira-saldanha/)
